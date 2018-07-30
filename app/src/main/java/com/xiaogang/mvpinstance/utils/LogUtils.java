@@ -48,12 +48,7 @@ public class LogUtils {
         warnInfo(DEFAULT_TAG, msg);
     }
 
-    /**
-     * 所以这里使用自己分节的方式来输出足够长度的message
-     *
-     * @param tag
-     * @param str void
-     */
+//    所以这里使用自己分节的方式来输出足够长度的message
     public static void debugLongInfo(String tag, String str) {
         if (!isLog) return;
         str = str.trim();
