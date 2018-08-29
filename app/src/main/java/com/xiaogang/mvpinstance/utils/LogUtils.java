@@ -22,7 +22,7 @@ import android.util.Log;
 public class LogUtils {
 
     private LogUtils() {
-        throw new IllegalStateException("you can't instantiate me!");
+        throw new IllegalStateException("you can't instantiate LogUtils!");
     }
 
     private final static boolean isLog = true;
