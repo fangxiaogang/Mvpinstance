@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 JessYan
+ * Copyright (C) 2016 venshine.cn@gmail.com
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,61 +15,131 @@
  */
 package com.xiaogang.mvpinstance.utils;
 
-import android.text.TextUtils;
 import android.util.Log;
 
+import com.xiaogang.mvpinstance.BuildConfig;
 
+
+/**
+ * Log日志打印操作
+ *
+ * @author Weiss
+ */
 public class LogUtils {
 
-    private LogUtils() {
-        throw new IllegalStateException("you can't instantiate LogUtils!");
+    private static final boolean DEBUG = BuildConfig.DEBUG;
+
+    /**
+     * 获取当前类名
+     *
+     * @return
+     */
+    private static String getClassName() {
+        // 这里的数组的index，即2，是根据你工具类的层级取的值，可根据需求改变
+        StackTraceElement thisMethodStack = (new Exception()).getStackTrace()[2];
+        String result = thisMethodStack.getClassName();
+        int lastIndex = result.lastIndexOf(".");
+        result = result.substring(lastIndex + 1, result.length());
+        return result;
     }
 
-    private final static boolean isLog = true;
-    public static final String DEFAULT_TAG = "MVP";
-
-    public static void debugInfo(String tag, String msg) {
-        if (!isLog || TextUtils.isEmpty(msg)) return;
-        Log.d(tag, msg);
-
-    }
-
-    public static void debugInfo(String msg) {
-        debugInfo(DEFAULT_TAG, msg);
-    }
-
-    public static void warnInfo(String tag, String msg) {
-        if (!isLog || TextUtils.isEmpty(msg)) return;
-        Log.w(tag, msg);
-
-    }
-
-    public static void warnInfo(String msg) {
-        warnInfo(DEFAULT_TAG, msg);
-    }
-
-//    所以这里使用自己分节的方式来输出足够长度的message
-    public static void debugLongInfo(String tag, String str) {
-        if (!isLog) return;
-        str = str.trim();
-        int index = 0;
-        int maxLength = 3500;
-        String sub;
-        while (index < str.length()) {
-            // java的字符不允许指定超过总的长度end  
-            if (str.length() <= index + maxLength) {
-                sub = str.substring(index);
-            } else {
-                sub = str.substring(index, index + maxLength);
-            }
-
-            index += maxLength;
-            Log.d(tag, sub.trim());
+    /**
+     * System.out.print打印
+     *
+     * @param logString
+     */
+    public static void print(String logString) {
+        if (DEBUG) {
+            System.out.println(getClassName() + "  :  " + logString);
         }
     }
 
-    public static void debugLongInfo(String str) {
-        debugLongInfo(DEFAULT_TAG, str);
+
+    /**
+     * System.out.print打印
+     *
+     * @param logString
+     * @param tag
+     */
+    public static void print(String tag, String logString) {
+        if (DEBUG) {
+            System.out.println(tag + " : " + logString);
+        }
+    }
+
+
+    public static void w(String logString) {
+        if (DEBUG) {
+            Log.w(getClassName(), logString);
+        }
+    }
+
+    /**
+     * debug log
+     *
+     * @param msg
+     */
+    public static void d(String tag, String msg) {
+        if (DEBUG) {
+            Log.d(tag, msg);
+        }
+    }
+
+    /**
+     * error log
+     *
+     * @param msg
+     */
+    public static void e(String tag, String msg) {
+        if (DEBUG) {
+            Log.e(tag, msg);
+        }
+    }
+
+    /**
+     * debug log
+     *
+     * @param msg
+     */
+    public static void d(String msg) {
+        if (DEBUG) {
+            Log.d(getClassName(), msg);
+        }
+    }
+
+    /**
+     * debug log
+     *
+     * @param msg
+     */
+    public static void i(String msg) {
+        if (DEBUG) {
+            Log.i(getClassName(), msg);
+        }
+    }
+
+    /**
+     * error log
+     *
+     * @param msg
+     */
+    public static void e(String msg) {
+        if (DEBUG) {
+            Log.e(getClassName(), msg);
+        }
+    }
+
+    public static void i(String tag, String logString) {
+        if (DEBUG) {
+            Log.i(tag, logString);
+        }
+    }
+
+
+    public static void w(String tag, String logString) {
+        if (DEBUG) {
+            Log.w(tag, logString);
+        }
     }
 
 }

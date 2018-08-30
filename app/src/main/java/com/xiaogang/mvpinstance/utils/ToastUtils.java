@@ -4,14 +4,14 @@ import android.content.Context;
 import android.support.annotation.StringRes;
 import android.widget.Toast;
 
-import com.luliang.devmvp.DevMvpApplication;
+import com.xiaogang.MyApplication;
 
 /**
  * Created by Liang_Lu on 2017/9/7.
  */
 
 public class ToastUtils {
-    private static Context context = DevMvpApplication.getAppContext();
+    private static Context context = MyApplication.getAppContext();
     private static Toast toast;
 
     public static void show(@StringRes int resId) {

@@ -1,9 +1,10 @@
 package com.xiaogang.mvpinstance.mvp.base;
 
 
+import com.xiaogang.mvpinstance.net.DevMvpApi;
+import com.xiaogang.mvpinstance.net.DevMvpService;
 
-
-
+import io.reactivex.disposables.CompositeDisposable;
 
 public abstract class BaseModel {
 
