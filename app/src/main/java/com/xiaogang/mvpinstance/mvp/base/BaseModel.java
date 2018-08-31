@@ -1,8 +1,8 @@
 package com.xiaogang.mvpinstance.mvp.base;
 
 
-import com.xiaogang.mvpinstance.net.DevMvpApi;
-import com.xiaogang.mvpinstance.net.DevMvpService;
+import com.xiaogang.mvpinstance.net.RetrofitManager;
+import com.xiaogang.mvpinstance.net.ApiService;
 
 import io.reactivex.disposables.CompositeDisposable;
 
@@ -15,8 +15,8 @@ public abstract class BaseModel {
      * 初始化调用网络请求
      * @return
      */
-    public DevMvpService apiService() {
-        return DevMvpApi.createApi().create(DevMvpService.class);
+    public ApiService apiService() {
+        return RetrofitManager.createApi().create(ApiService.class);
     }
     /**
      * 取消网络请求

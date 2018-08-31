@@ -1,4 +1,4 @@
-package com.xiaogang;
+package com.xiaogang.mvpinstance.app;
 
 import android.app.Application;
 import android.content.Context;

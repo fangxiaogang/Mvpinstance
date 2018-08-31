@@ -4,11 +4,9 @@ import android.content.Context;
 import android.support.annotation.StringRes;
 import android.widget.Toast;
 
-import com.xiaogang.MyApplication;
+import com.xiaogang.mvpinstance.app.MyApplication;
 
-/**
- * Created by Liang_Lu on 2017/9/7.
- */
+
 
 public class ToastUtils {
     private static Context context = MyApplication.getAppContext();

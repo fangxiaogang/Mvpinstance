@@ -7,9 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 
-/**
- * Created by Liang_Lu on 2017/12/21.
- */
+
 
 public abstract class BaseActivity<T extends BasePresenter> extends AppCompatActivity {
     public Context mContext;
@@ -22,7 +20,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         if (setContentViewId() != 0) {
             setContentView(setContentViewId());
         } else {
-            throw new RuntimeException("layoutResID==-1 have u create your layout?");
+            throw new RuntimeException(" you have to setContentViewId");
         }
         createPresenter();
         ButterKnife.bind(this);

@@ -10,18 +10,13 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by Liang_Lu on 2017/8/31.
+ * Retrofit 管理类
  */
 
-public class DevMvpApi {
+public class RetrofitManager {
     private static Retrofit mRetrofit;
 
-    /**
-     * Retrofit初始化
-     *
-     *
-     * @return
-     */
+
     public static Retrofit createApi() {
         OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder().
                 connectTimeout(10, TimeUnit.SECONDS)
@@ -30,11 +25,13 @@ public class DevMvpApi {
 
         httpClientBuilder.addInterceptor(new HttpLoggingInterceptor()
                 .setLevel(HttpLoggingInterceptor.Level.BODY));
+
+
         mRetrofit = new Retrofit.Builder()
                 .client(httpClientBuilder.build())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(Url.BASE_URL)
+                .baseUrl(Constant.BASE_URL)
                 .build();
         return mRetrofit;
     }

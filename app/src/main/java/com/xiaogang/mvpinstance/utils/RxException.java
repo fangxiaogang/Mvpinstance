@@ -16,10 +16,7 @@ import java.text.ParseException;
 
 import retrofit2.HttpException;
 
-/**
- * Created by LiangLu on 2017/10/23.
- * 异常类型
- */
+
 
 public class RxException extends Exception {
 

@@ -11,7 +11,6 @@ import io.reactivex.schedulers.Schedulers;
 
 
 /**
- * Created by Liang_Lu on 2016/12/20.
  * <p>
  * 控制操作线程的辅助类
  */

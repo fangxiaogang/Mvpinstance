@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
 
 
-        <activity android:name="com.xiaogang.mvpinstance.mvp.view.BookActivity">
+        <activity android:name="com.xiaogang.mvpinstance.mvp.view.NewsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
